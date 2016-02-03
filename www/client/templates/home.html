@@ -3,9 +3,24 @@
 Welcome to Twitter for Pugs
 </div>
 
-{{#if currentUser}}
-<div>User is logged in </div>
-{{else}}
-<div> User is not logged in</div>
-{{/if}}
+  <h1>Twitter in Space!</h1>
+
+	{{> tweetBox}}	
+	{{> tweetList}}
+
+</template>
+
+
+
+<template name="tweetBox">
+	<textarea class="form-control" id="tweetText" placeholder="Enter your tweet here." rows=3></textarea>
+  <button id="postTweet">Tweet</button>
+</template>
+
+<template name="tweetList">
+	<ul>
+		{{#each tweets}}
+		<li><a href='/profiles/{{_id}}'><img src='{{profile.imgURL}}'><b>{{userEmail}}</b>: </a>{{content}}</li>
+		{{/each}}
+	</ul>
 </template>
