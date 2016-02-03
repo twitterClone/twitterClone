@@ -11,7 +11,7 @@
 			} else {
 				alert("Please log in first.");
 			}
-    });
+    }
 
   });
 
