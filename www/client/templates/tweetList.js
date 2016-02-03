@@ -7,9 +7,15 @@
   Template.tweetBox.events({
     'click #postTweet': function () {
 			if (Meteor.user()) {
-				Tweets.insert({"content": $('#tweetText').val(), "user": Meteor.user(), "userEmail": Meteor.user().emails[0].address});
+				Tweets.insert({"content": $('#tweetText').val(), "user": Meteor.user(), "username": Meteor.user().username});
 			} else {
 				alert("Please log in first.");
 			}
     }
+
   });
+}
+
+Accounts.ui.config({
+	passwordSignupFields: "USERNAME_ONLY"
+});
